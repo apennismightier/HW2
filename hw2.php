@@ -132,8 +132,7 @@ return status
 
 <body>
 
-<form  action = form action = "upload.php" method="Post" enctype="multipart/form-data" onsubmit = "return test()" >
-
+<form onsubmit = "return test()" >
 
 <table border = 5 style="black">
 <tr>
@@ -226,33 +225,27 @@ return status
 <span id="combo"></span>
 Year&nbsp;&nbsp;<input type = text  id="year1" name = "Year" style="width: 145px">
 <span id="year"></span>
-
-
 </td>
-<td>Upload <input type ="file" name ="upfile" />
+<td>Upload <form action = "upload.php" method="Post" enctype="multipart/form-data" onsubmit = "return test()" >
+<input type ="file" name="upfile" />
+
 
 <?php
 
 
-(  $_POST["unknown"]  ==  "secret" )   	   or 	die ( "Invalid password."  ) 	 ;
-(  $_FILES["upfile"]["size"] < 20000  )    	   or 	die ( "Upload file too large."  );
-(  $_FILES["upfile"]["type"] ==  "image/gif"   )   or 	die ( "Invalid file type." )   	 ;
+ ($_FILES["upfile"]["size"] < 500000  );
+ ($_FILES["upfile"]["type"] ==  "image/jpg"   ) 	;
     move_uploaded_file
         ($_FILES ["upfile"]["tmp_name"] ,  "storage/"  .  $_FILES ["upfile"]["name"] ) ;
 
 ?>
-</td>
-</tr>
 <tr>
-	<td colspan="2" class="style1" >
-	<input  style="width: 300px" type="submit" value="Submit" >
-	</td>
+<td colspan="2" align="center">
+<input type ="submit" name ="submit" value="Submit"/>
+<td>
 </tr>
-
-</table>
 
 </form>
- 
 <p>
 <a href="http://validator.w3.org/check?uri=referer"><img
     src="http://www.w3.org/Icons/valid-html401"
